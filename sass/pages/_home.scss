@@ -1,0 +1,18 @@
+.container{
+    display: grid;
+
+    /*
+     * Explicação para grid template rows: 
+     *     40vw faz com que a altura da coluna seja responsiva adiminuição da largura do viewport,
+     * diminuindo tanto a largura e a altura da linha.
+     *
+     * Explicação para grid template columns: 
+     *     12 column layout grid.
+     *     Os 2 1fr servem para centralizar as 8 colunas que vão ditar o tamanho  
+     * de algums grid items do layout.
+     */
+    grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+    grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start]
+                           repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 
+                           minmax(6rem, 1fr) [full-end]; // 1140/8 ~ 14rem
+}

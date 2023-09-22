@@ -1,0 +1,99 @@
+@charset "UTF-8";
+:root {
+  --color-primary: #c69963;
+  --color-primary-dark: #B28451;
+  --color-secondary: #101d2c;
+  --color-grey-light-1: #f9f7f6;
+  --color-grey-light-2: #aaa;
+  --color-grey-dark-1: #54483A;
+  --color-grey-dark-2: #6D5D4B;
+  --font-primary: "Nunito", sans-serif;
+  --font-display: "Josefin Sans", sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--color-grey-dark-2);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Basic Reset */
+*,
+*::after,
+*::before {
+  /* Reseta o padding e margin normais do elemento para zero*/
+  padding: 0;
+  margin: 0;
+  /* Box sizing faz com que o padding e border sejam/não sejam adicionadas a altura e largura total. */
+  box-sizing: inherit;
+}
+
+/* End of Basic Reset */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+.features {
+  background-color: var(--color-grey-light-2);
+  grid-column: center-start/center-end;
+}
+
+.footer {
+  background-color: var(--color-secondary);
+  grid-column: full-start/full-end;
+}
+
+.gallery {
+  background-color: var(--color-grey-dark-1);
+  grid-column: full-start/full-end;
+}
+
+.header {
+  background-color: var(--color-grey-dark-1);
+  grid-column: full-start/col-end 6;
+}
+
+.homes {
+  background-color: var(--color-secondary);
+  grid-column: center-start/center-end;
+}
+
+.realtors {
+  background-color: var(--color-secondary);
+  grid-column: col-start 7/full-end;
+}
+
+.sidebar {
+  background-color: var(--color-primary);
+  grid-column: sidebar-start/sidebar-end;
+  grid-row: 1/-1;
+}
+
+.story__pictures {
+  background-color: var(--color-primary);
+  grid-column: full-start/col-end 4;
+}
+.story__content {
+  background-color: var(--color-grey-light-1);
+  grid-column: col-start 5/full-end;
+}
+
+.container {
+  display: grid;
+  /*
+   * Explicação para grid template rows: 
+   *     40vw faz com que a altura da coluna seja responsiva adiminuição da largura do viewport,
+   * diminuindo tanto a largura e a altura da linha.
+   *
+   * Explicação para grid template columns: 
+   *     12 column layout grid.
+   *     Os 2 1fr servem para centralizar as 8 colunas que vão ditar o tamanho  
+   * de algums grid items do layout.
+   */
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+}
+
+/*# sourceMappingURL=style.css.map */
