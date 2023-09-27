@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as mixins;
+
 .realtors{
     background-color: var(--color-secondary);
     grid-column: col-start 7 / full-end;
@@ -9,12 +11,25 @@
     justify-items: center;
     row-gap: 2rem;
 
+    @include mixins.responsive(bp-medium){
+        grid-column:  1 / -1;
+    }
+
     &__list{
         display: grid;
         grid-template-columns: min-content max-content;
         row-gap: 5vh;
         column-gap: 2rem;
         align-items: center;
+
+        @include mixins.responsive(bp-medium){
+            grid-template-columns: repeat(3, min-content max-content);
+            column-gap: 2.5rem;
+        }
+
+        @include mixins.responsive(bp-small){
+            grid-template-columns: min-content max-content;
+        }
     }
 
     &__img{

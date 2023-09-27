@@ -1,4 +1,10 @@
+@use '../abstracts/mixins' as mixins;
+
 html{
     box-sizing: border-box;
     font-size: 62.5%;
+
+    @include mixins.responsive(bp-largest){
+        font-size: 50%;
+    }
 }

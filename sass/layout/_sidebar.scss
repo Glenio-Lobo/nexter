@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as mixins;
+
 .sidebar{
     background-color: var(--color-primary);
     grid-column: sidebar-start / sidebar-end;
@@ -6,7 +8,13 @@
     display: flex;
     justify-content: center;
 
-    // cursor: pointer;
+    @include mixins.responsive(bp-large){
+        grid-column: 1 / -1;
+        grid-row: 1 / span 1;
+        justify-content: end;
+        align-items: center;
+    }
+    
 }
 
 .nav-button{
@@ -17,6 +25,19 @@
     height: 2px;
     width: 4.5rem;
     margin-top: 4rem;
+
+    @include mixins.responsive(bp-large){
+        margin-top: 0;
+        margin-right: 3rem;
+
+        &::before{
+            transform: translateY(-1.2rem);
+        }
+    
+        &::after{
+            transform: translateY(1rem);
+        }
+    }
 
     &::before,
     &::after{

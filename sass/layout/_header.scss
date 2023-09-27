@@ -1,4 +1,5 @@
 @use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mixins;
 
 .header{
     background-color: var(--color-grey-dark-1);
@@ -15,6 +16,14 @@
     grid-template-columns: auto; // O mesmo de minmax(min-content, max-content)
     justify-content: center;
     row-gap: 1.5rem;
+
+    @include mixins.responsive(bp-medium){
+        grid-column:  1 / -1;
+    }
+
+    @include mixins.responsive(bp-small){
+        grid-column:  5rem;
+    }
 
     &__logo{
         height: 3rem;
@@ -52,7 +61,8 @@
         align-items: center;
 
         img{
-            height: 2.5rem;
+            max-height: 2.5rem;
+            max-width: 100%;
             filter: brightness(70%);
         }
     }
